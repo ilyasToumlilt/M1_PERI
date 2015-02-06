@@ -1,0 +1,32 @@
+== Participants : 2 ==
+
+   HOSPITAL Alexandra - 3401862 - <alexandra.hospital@etu.upmc.fr>
+   TOUMLILT Ilyas     - 3261538 - <toumlilt.ilyas@gmail.com>
+   
+== Fichiers inclus ==
+
+   EXO_1 :
+   -> src/fake.c : 
+
+   EXO_2 :
+   -> src/python.py :
+
+== Directives de 'makefile' ==
+
+   all : monsieur fait tout, lance le serveur en arrière plan, puis fake
+       	 au premier plan pour les saisies.
+
+   fake : compile, edite les liens et execute fake.c ( et lance server )
+   server : exec server.py ( en arrière plan )
+
+   directories : création des répertoires temporaires s'ils n'existent pas déjà
+   clean : Suppression de tous les fichiers binaires, objet et bibliothèques.
+   cleanall : Suppression des répertoires et fichiers temporaires
+
+== Etat d'avancement ==
+
+   EXO 1 : Fake   - OK
+   EXO 2 : Server - OK
+
+== Réponses ==
+
