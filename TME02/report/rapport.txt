@@ -1,0 +1,83 @@
+#TP02&nbsp;-&nbsp;Outils&nbsp;de&nbsp;dev&nbsp;et&nbsp;GPIO<br/>
+######version&nbsp;1.1<br/>
+<br/>
+**==&nbsp;Participants&nbsp;:&nbsp;2&nbsp;==**<br/>
+&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;HOSPITAL&nbsp;Alexandra&nbsp;-&nbsp;3401862&nbsp;-&nbsp;<alexandra.hospital@etu.upmc.fr><br/>
+&nbsp;&nbsp;&nbsp;TOUMLILT&nbsp;Ilyas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;3261538&nbsp;-&nbsp;<toumlilt.ilyas@gmail.com><br/>
+&nbsp;&nbsp;&nbsp;<br/>
+**==&nbsp;Fichiers&nbsp;inclus&nbsp;==**<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;EXO_1&nbsp;:<br/>
+&nbsp;&nbsp;&nbsp;->&nbsp;src/hello_world.c&nbsp;:&nbsp;programme&nbsp;de&nbsp;prise&nbsp;en&nbsp;main,&nbsp;affiche&nbsp;simplement&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			&nbsp;&nbsp;un&nbsp;hello&nbsp;world&nbsp;sur&nbsp;la&nbsp;sortie&nbsp;standard.<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;EXO_2&nbsp;:<br/>
+&nbsp;&nbsp;&nbsp;->&nbsp;src/lab1.c&nbsp;:&nbsp;Fait&nbsp;clignoter&nbsp;10&nbsp;fois&nbsp;la&nbsp;led&nbsp;sur&nbsp;GPIO04<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		&nbsp;&nbsp;&nbsp;pour&nbsp;une&nbsp;période&nbsp;de&nbsp;fréquence&nbsp;passée&nbsp;en&nbsp;paramètre<br/>
+		&nbsp;&nbsp;&nbsp;(&nbsp;1Hz&nbsp;par&nbsp;défaut&nbsp;si&nbsp;pas&nbsp;de&nbsp;paramètre&nbsp;).<br/>
+&nbsp;&nbsp;&nbsp;EXO_3&nbsp;:<br/>
+&nbsp;&nbsp;&nbsp;->&nbsp;src/lab2.c&nbsp;:&nbsp;Fait&nbsp;clignoter&nbsp;10&nbsp;fois&nbsp;les&nbsp;4&nbsp;LEDs<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;EXO_4&nbsp;:<br/>
+&nbsp;&nbsp;&nbsp;->&nbsp;src/lab3.c&nbsp;:&nbsp;Configure&nbsp;les&nbsp;deux&nbsp;GPIOs&nbsp;des&nbsp;deux&nbsp;BTN&nbsp;en&nbsp;entrée&nbsp;puis&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		&nbsp;&nbsp;&nbsp;affiche&nbsp;leurs&nbsp;valeurs&nbsp;dans&nbsp;une&nbsp;boucle&nbsp;d'échantillonnage.<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;EXO_5&nbsp;:<br/>
+&nbsp;&nbsp;&nbsp;->&nbsp;src/gpio_setup.c&nbsp;:&nbsp;configurations&nbsp;mémoire,&nbsp;mmap&nbsp;/&nbsp;munmap.<br/>
+&nbsp;&nbsp;&nbsp;->&nbsp;src/gpio_config.c&nbsp;:&nbsp;initialisation&nbsp;des&nbsp;GPIO&nbsp;(&nbsp;champ&nbsp;FSEL&nbsp;),&nbsp;pour&nbsp;les&nbsp;I/O.<br/>
+&nbsp;&nbsp;&nbsp;->&nbsp;src/gpio_value.c&nbsp;:&nbsp;implémentations&nbsp;des&nbsp;fonctions&nbsp;d'I/O&nbsp;depuis&nbsp;les&nbsp;GPIO.<br/>
+&nbsp;&nbsp;&nbsp;->&nbsp;**POINT&nbsp;FORT**&nbsp;:&nbsp;la&nbsp;configuration&nbsp;marche&nbsp;pour&nbsp;les&nbsp;deux&nbsp;version&nbsp;de&nbsp;RPi<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;il&nbsp;détecte&nbsp;la&nbsp;version&nbsp;et&nbsp;configure&nbsp;l'adresse&nbsp;de&nbsp;base<br/>
+		&nbsp;&nbsp;&nbsp;en&nbsp;fonction&nbsp;de&nbsp;la&nbsp;révision.<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;EXO_6&nbsp;:<br/>
+&nbsp;&nbsp;&nbsp;->&nbsp;src/lab4.c&nbsp;:&nbsp;Alors&nbsp;pour&nbsp;nous&nbsp;amuser&nbsp;on&nbsp;utilisera&nbsp;deux&nbsp;LEDs&nbsp;et&nbsp;les&nbsp;deux&nbsp;BTNs<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		&nbsp;&nbsp;&nbsp;pour&nbsp;implémenter&nbsp;un&nbsp;automate&nbsp;déterministe&nbsp;qui&nbsp;se&nbsp;base&nbsp;<br/>
+&nbsp;		&nbsp;&nbsp;&nbsp;sur&nbsp;les&nbsp;états&nbsp;des&nbsp;noeuds.<br/>
+&nbsp;		&nbsp;&nbsp;&nbsp;Chaque&nbsp;bouton&nbsp;s'occupe&nbsp;d'allumer/éteindre&nbsp;une&nbsp;LED.<br/>
+&nbsp;		&nbsp;&nbsp;&nbsp;Le&nbsp;programme&nbsp;s'arrête&nbsp;quand&nbsp;on&nbsp;appuie&nbsp;sur&nbsp;les&nbsp;deux&nbsp;BTNS.<br/>
+<br/>
+<br/>
+**==&nbsp;Directives&nbsp;de&nbsp;'makefile'&nbsp;==**<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;all&nbsp;:&nbsp;monsieur&nbsp;fait&nbsp;tout.<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;hello_world:&nbsp;cc&nbsp;+&nbsp;ld&nbsp;exo1<br/>
+&nbsp;&nbsp;&nbsp;lab1:&nbsp;cc&nbsp;+&nbsp;ld&nbsp;exo2<br/>
+&nbsp;&nbsp;&nbsp;lab2:&nbsp;cc&nbsp;+&nbsp;ld&nbsp;exo3<br/>
+&nbsp;&nbsp;&nbsp;lab3:&nbsp;cc&nbsp;+&nbsp;ld&nbsp;exo4<br/>
+&nbsp;&nbsp;&nbsp;lab4:&nbsp;cc&nbsp;+&nbsp;ld&nbsp;exo6<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;upload&nbsp;:&nbsp;charge&nbsp;les&nbsp;executables&nbsp;sur&nbsp;la&nbsp;RPi.<br/>
+&nbsp;&nbsp;&nbsp;upload-home&nbsp;:&nbsp;upload&nbsp;chez&nbsp;moi.<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;directories&nbsp;:&nbsp;création&nbsp;des&nbsp;répertoires&nbsp;temporaires&nbsp;s'ils&nbsp;n'existent&nbsp;pas&nbsp;déjà<br/>
+&nbsp;&nbsp;&nbsp;clean&nbsp;:&nbsp;Suppression&nbsp;de&nbsp;tous&nbsp;les&nbsp;fichiers&nbsp;binaires,&nbsp;objet&nbsp;et&nbsp;bibliothèques.<br/>
+&nbsp;&nbsp;&nbsp;cleanall&nbsp;:&nbsp;Suppression&nbsp;des&nbsp;répertoires&nbsp;et&nbsp;fichiers&nbsp;temporaires<br/>
+<br/>
+**==&nbsp;Etat&nbsp;d'avancement&nbsp;==**<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;EXO&nbsp;1&nbsp;:&nbsp;Hello&nbsp;World&nbsp;-&nbsp;OK<br/>
+&nbsp;&nbsp;&nbsp;EXO&nbsp;2&nbsp;:&nbsp;Controle&nbsp;de&nbsp;GPIO&nbsp;en&nbsp;sortie&nbsp;-&nbsp;OK<br/>
+&nbsp;&nbsp;&nbsp;EXO&nbsp;3&nbsp;:&nbsp;Contrôler&nbsp;plusieurs&nbsp;LEDs&nbsp;-&nbsp;OK<br/>
+&nbsp;&nbsp;&nbsp;EXO&nbsp;4&nbsp;:&nbsp;Contrôle&nbsp;des&nbsp;GPIOs&nbsp;en&nbsp;entrée&nbsp;-&nbsp;OK<br/>
+&nbsp;&nbsp;&nbsp;EXO&nbsp;5&nbsp;:&nbsp;Manipulation&nbsp;des&nbsp;registres&nbsp;-&nbsp;OK<br/>
+&nbsp;&nbsp;&nbsp;EXO&nbsp;6&nbsp;:&nbsp;Amusez-vous&nbsp;!&nbsp;-&nbsp;OK<br/>
+<br/>
+**==&nbsp;Réponses&nbsp;==**<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;EXO_02&nbsp;:<br/>
+&nbsp;&nbsp;&nbsp;->&nbsp;On&nbsp;observe&nbsp;que&nbsp;plus&nbsp;on&nbsp;augmente&nbsp;la&nbsp;fréquence&nbsp;(&nbsp;réduit&nbsp;la&nbsp;période&nbsp;en&nbsp;param&nbsp;)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;plus&nbsp;vite&nbsp;la&nbsp;led&nbsp;clignote.<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;EXO_04&nbsp;:<br/>
+&nbsp;&nbsp;&nbsp;->&nbsp;On&nbsp;observe&nbsp;que&nbsp;l'entrée&nbsp;est&nbsp;effectivemment&nbsp;égale&nbsp;à&nbsp;0&nbsp;quand&nbsp;on&nbsp;appuie&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sur&nbsp;le&nbsp;bouton&nbsp;et&nbsp;1&nbsp;sinon&nbsp;(&nbsp;Pull&nbsp;Up&nbsp;).&nbsp;Que&nbsp;la&nbsp;fréquence&nbsp;fait&nbsp;qu'on&nbsp;a&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;plusieurs&nbsp;0&nbsp;quand&nbsp;on&nbsp;appuie.<br/>
+&nbsp;&nbsp;&nbsp;->&nbsp;Fréquence&nbsp;d'échantillonnage&nbsp;minimale&nbsp;si&nbsp;on&nbsp;appuie&nbsp;10&nbsp;fois&nbsp;par&nbsp;seconde,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sera&nbsp;le&nbsp;double,&nbsp;c'est&nbsp;à&nbsp;dire&nbsp;20Hz&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;->&nbsp;Pour&nbsp;écrire&nbsp;un&nbsp;programme&nbsp;qui&nbsp;échantillonne&nbsp;avec&nbsp;une&nbsp;fréquance&nbsp;égale&nbsp;à&nbsp;100Hz,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;il&nbsp;faut&nbsp;faire&nbsp;un&nbsp;sleep&nbsp;de&nbsp;100&nbsp;millisecondes&nbsp;entre&nbsp;chaque&nbsp;deux&nbsp;lectures.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&nbsp;usleep(100*1000)&nbsp;dans&nbsp;le&nbsp;code,&nbsp;en&nbsp;microsecondes&nbsp;).&nbsp;<br/>
+<br/>
