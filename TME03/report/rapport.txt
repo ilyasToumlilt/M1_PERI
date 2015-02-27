@@ -1,0 +1,65 @@
+#TP03&nbsp;-&nbsp;Premier&nbsp;pilote<br/>
+######version&nbsp;1.0<br/>
+<br/>
+**==&nbsp;Participants&nbsp;:&nbsp;2&nbsp;==**<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;HOSPITAL&nbsp;Alexandra&nbsp;-&nbsp;3401862&nbsp;-&nbsp;<alexandra.hospital@etu.upmc.fr><br/>
+&nbsp;&nbsp;&nbsp;TOUMLILT&nbsp;Ilyas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;3261538&nbsp;-&nbsp;<toumlilt.ilyas@gmail.com><br/>
+&nbsp;&nbsp;&nbsp;<br/>
+**==&nbsp;Fichiers&nbsp;inclus&nbsp;==**<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;EXO_1&nbsp;:<br/>
+&nbsp;&nbsp;&nbsp;->&nbsp;src/module.c&nbsp;:&nbsp;Un&nbsp;module&nbsp;minimal&nbsp;se&nbsp;composant&nbsp;d'une&nbsp;fonction<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d'initialisation&nbsp;et&nbsp;d'une&nbsp;fonction&nbsp;de&nbsp;cleanup.<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fourni&nbsp;avec&nbsp;le&nbsp;TP.<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;EXO_2&nbsp;:<br/>
+&nbsp;&nbsp;&nbsp;->&nbsp;src/module_param.c&nbsp;:&nbsp;Le&nbsp;meme&nbsp;module&nbsp;minimal&nbsp;avec&nbsp;prise&nbsp;en&nbsp;compte&nbsp;des<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			&nbsp;&nbsp;&nbsp;arguments&nbsp;pour&nbsp;le&nbsp;nombre&nbsp;de&nbsp;LEDs&nbsp;et&nbsp;de&nbsp;BTNs.<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;EXO_3&nbsp;:<br/>
+&nbsp;&nbsp;&nbsp;->&nbsp;src/ledbtn_lite.c&nbsp;:&nbsp;Module&nbsp;de&nbsp;test&nbsp;des&nbsp;opérations&nbsp;d'entrées&nbsp;sorties.<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;EXO_4&nbsp;:<br/>
+&nbsp;&nbsp;&nbsp;->&nbsp;src/ledbtn.c&nbsp;:&nbsp;Accès&nbsp;aux&nbsp;GPIOs&nbsp;depuis&nbsp;les&nbsp;fonctions&nbsp;du&nbsp;pilote,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ce&nbsp;driver&nbsp;gère&nbsp;les&nbsp;GPIOs&nbsp;depuis&nbsp;le&nbsp;mode&nbsp;user&nbsp;en&nbsp;utilisant&nbsp;<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;les&nbsp;opérations&nbsp;d'entrée&nbsp;sortie.<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pour&nbsp;écrire&nbsp;vers&nbsp;les&nbsp;LEDs&nbsp;il&nbsp;suffit&nbsp;d'envoyer&nbsp;une&nbsp;chaine<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;binaire,&nbsp;par&nbsp;ex&nbsp;:&nbsp;0101&nbsp;pour&nbsp;4&nbsp;leds<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pour&nbsp;lire&nbsp;la&nbsp;valeur&nbsp;des&nbsp;BTNs&nbsp;il&nbsp;suffit&nbsp;du&nbsp;faire&nbsp;un&nbsp;read.<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Les&nbsp;arguments&nbsp;sont&nbsp;importants&nbsp;pour&nbsp;ce&nbsp;module,&nbsp;et&nbsp;définissent<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;le&nbsp;nombre&nbsp;de&nbsp;LEDs&nbsp;et&nbsp;BTNs,&nbsp;le&nbsp;module&nbsp;ne&nbsp;s'insère&nbsp;pas&nbsp;si<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;au&nbsp;moins&nbsp;l'un&nbsp;des&nbsp;deux&nbsp;n'est&nbsp;pas&nbsp;présent.&nbsp;<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;RAPPORT&nbsp;:<br/>
+&nbsp;&nbsp;&nbsp;->&nbsp;report/rapport.pdf&nbsp;:&nbsp;compte&nbsp;rendu&nbsp;de&nbsp;la&nbsp;semaine.<br/>
+<br/>
+**==&nbsp;Directives&nbsp;de&nbsp;'makefile'&nbsp;==**<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;all&nbsp;:&nbsp;monsieur&nbsp;fait&nbsp;tout.<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;module:&nbsp;cross&nbsp;compile&nbsp;tous&nbsp;les&nbsp;modules&nbsp;du&nbsp;tp.&nbsp;&nbsp;&nbsp;<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;upload&nbsp;:&nbsp;charge&nbsp;l'exec&nbsp;sur&nbsp;le&nbsp;rpi.<br/>
+&nbsp;&nbsp;&nbsp;upload-home&nbsp;:&nbsp;upload&nbsp;chez&nbsp;moi.<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;directories&nbsp;:&nbsp;création&nbsp;des&nbsp;répertoires&nbsp;temporaires&nbsp;s'ils&nbsp;n'existent&nbsp;pas&nbsp;déjà<br/>
+&nbsp;&nbsp;&nbsp;clean&nbsp;:&nbsp;Suppression&nbsp;de&nbsp;tous&nbsp;les&nbsp;fichiers&nbsp;binaires,&nbsp;objet&nbsp;et&nbsp;bibliothèques.<br/>
+&nbsp;&nbsp;&nbsp;cleanall&nbsp;:&nbsp;Suppression&nbsp;des&nbsp;répertoires&nbsp;et&nbsp;fichiers&nbsp;temporaires<br/>
+<br/>
+**==&nbsp;Etat&nbsp;d'avancement&nbsp;==**<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;EXO&nbsp;1&nbsp;:&nbsp;Création&nbsp;et&nbsp;test&nbsp;d'un&nbsp;module&nbsp;Noyau&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;OK<br/>
+&nbsp;&nbsp;&nbsp;EXO&nbsp;2&nbsp;:&nbsp;Ajout&nbsp;des&nbsp;paramètres&nbsp;au&nbsp;module&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;OK<br/>
+&nbsp;&nbsp;&nbsp;EXO&nbsp;3&nbsp;:&nbsp;Module&nbsp;qui&nbsp;ne&nbsp;fait&nbsp;rien&nbsp;mais&nbsp;dans&nbsp;le&nbsp;Noyau&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;OK<br/>
+&nbsp;&nbsp;&nbsp;EXO&nbsp;4&nbsp;:&nbsp;Accès&nbsp;aux&nbsp;GPIO&nbsp;depuis&nbsp;les&nbsp;fonctions&nbsp;du&nbsp;pilote&nbsp;-&nbsp;OK<br/>
+<br/>
+**==&nbsp;Réponses&nbsp;==**<br/>
+&nbsp;&nbsp;&nbsp;Pas&nbsp;de&nbsp;questions&nbsp;cette&nbsp;semaine&nbsp;=)&nbsp;<br/>
+<br/>
+**==&nbsp;Links&nbsp;==**<br/>
+-&nbsp;TP&nbsp;:&nbsp;https://www-soc.lip6.fr/trac/sesi-peri/wiki/SujetTP3-2015<br/>
+-&nbsp;http://www.chicoree.fr/w/Compilation_crois%C3%A9e_d%27un_module_Linux_pour_Rasberry_Pi<br/>
+-&nbsp;http://elinux.org/Raspberry_Pi_Kernel_Compilation<br/>
+-&nbsp;http://stackoverflow.com/questions/17560989/insmod-failing-to-insert-a-really-simple-module<br/>
+-&nbsp;http://linux.die.net/lkmpg/x44.html
